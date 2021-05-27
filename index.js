@@ -155,6 +155,11 @@ app.get('/reviews', (req, res) => {
     //console.log('from database', service);
     res.send(order)
   })
+ app.delete('/deleteReviews/:id', (req,res) => {
+  const id = ObjectId(req.params.id);
+  reviewCollectionList.findOneAndDelete({_id: id})
+})
+
 })
 
 });
